@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        
+        background-color:lightgoldenrodyellow;
+    }
+    .container{
+        width:50%;
+        height:auto;
+        margin: auto;
+        margin-top:100px;
+        display: grid;
+        grid-template-columns:repeat(3, 1fr);
+        grid-template-rows: auto;
+        grid-gap: 40px;
+    }
+    .container>.color{
+        height:130px;
+        width:130px;
+        background-color:blueviolet;
+        margin: auto;
+        border-radius: 20px;
+    }
+    .topclass{
+        width:40%;
+        margin: auto;
+        font-family: 'Courier New', Courier, monospace;
+    }
+</style>
+</head>
+<body>
+    <div class="topclass" >
+        <h1 class="h1class"></h1>
+    </div>
+    <div class='container'>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+    </div>
+</body>
+</html>
+<script>
+    let ans = Math.floor(Math.random()*10);
+    let r,g,b;
+    let divs = document.querySelectorAll(".color");
+    for(let i=0; i<9; i++){
+        let r = Math.floor(Math.random()*256);
+        let g = Math.floor(Math.random()*256);
+        let b = Math.floor(Math.random()*256);
+        let rgb = "rgb("+r+","+g+","+b+")";
+        divs[i].style.backgroundColor = rgb;
+        divs[i].addEventListener("click",function(){
+            if(ans==i){
+                alert("YOU WON");
+                window.location.reload();
+            }else{
+                divs[i].style.backgroundColor = "lightgoldenrodyellow";
+            }
+        })
+    }
+    let h1 = document.querySelector('.h1class');
+    h1.innerText = divs[ans].style.backgroundColor;
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
